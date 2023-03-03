@@ -3,6 +3,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { UsersModule } from 'src/users/users.module';
 import { AuthController } from './auth.controller';
 import { AuthGuard } from './auth.guard';
+import { GithubStrategy } from './strategies/github.strategy';
 import { GoogleStrategy } from './strategies/google.strategy';
 
 @Module({
@@ -14,6 +15,7 @@ import { GoogleStrategy } from './strategies/google.strategy';
       useClass: AuthGuard,
     },
     GoogleStrategy,
+    GithubStrategy,
   ],
 })
 export class AuthModule {}

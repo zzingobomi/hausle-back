@@ -23,6 +23,7 @@ export class UsersService {
     email,
     password,
     nickname,
+    photoUrl,
   }: CreateAccountInput): Promise<CreateAccountOutput> {
     try {
       const emailExists = await this.users.findOne({ email });
@@ -40,7 +41,7 @@ export class UsersService {
         };
       }
       const user = await this.users.save(
-        this.users.create({ email, password, nickname }),
+        this.users.create({ email, password, nickname, photoUrl }),
       );
       // TODO: send verification code
       return { ok: true };
@@ -81,19 +82,6 @@ export class UsersService {
     }
   }
 
-  async findById(id: number): Promise<UserProfileOutput> {
-    try {
-      const user = await this.users.findOneOrFail({ id });
-
-      return {
-        ok: true,
-        user: user,
-      };
-    } catch (error) {
-      return { ok: false, error: 'User Not Found' };
-    }
-  }
-
   async editProfile(
     userId: number,
     { email, password, nickname }: EditProfileInput,
@@ -131,6 +119,38 @@ export class UsersService {
       };
     } catch (error) {
       return { ok: false, error: 'Could not update profile.' };
+    }
+  }
+
+  async findById(id: number): Promise<UserProfileOutput> {
+    try {
+      const user = await this.users.findOneOrFail({ id });
+
+      return {
+        ok: true,
+        user: user,
+      };
+    } catch (error) {
+      return { ok: false, error: 'User Not Found By Id' };
+    }
+  }
+
+  async findByEmail(email: string): Promise<UserProfileOutput> {
+    try {
+      const user = await this.users.findOne({ email });
+      if (user) {
+        return {
+          ok: true,
+          user: user,
+        };
+      }
+
+      return {
+        ok: false,
+        user: null,
+      };
+    } catch (e) {
+      return { ok: false, error: 'User Not Found By Email' };
     }
   }
 }

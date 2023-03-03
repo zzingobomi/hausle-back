@@ -41,6 +41,11 @@ export class User extends CoreEntity {
   @IsBoolean()
   verified: boolean;
 
+  @Column({ default: null })
+  @Field(type => String, { nullable: true })
+  @IsString()
+  photoUrl?: string;
+
   @BeforeInsert()
   @BeforeUpdate()
   async hashPassword(): Promise<void> {
