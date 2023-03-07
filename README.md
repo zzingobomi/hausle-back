@@ -1,73 +1,63 @@
+<h1 align="center">
+  <a href="http://zzingo5.synology.me:17000"><img src="http://zzingo5.synology.me:9000/hausle/logo.png" alt="dungeon" height="250px"></a>
+  <br>
+  Dungon Adventure
+  <br>
+</h1>
+<br>
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <img src="http://zzingo5.synology.me:9000/hausle/login.jpg" alt="login" width="300px" />
+  <img src="http://zzingo5.synology.me:9000/hausle/ingame.jpg" alt="ingame" width="300px" />
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<br/>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+### Frontend
 
-## Description
+##### React
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- React Typescript 를 이용하여 페이지 제작
+- Tailwind CSS 를 이용하여 디자인 적용
+- GraphQL 을 이용하여 Backend 와 통신
+- React-hook-form 을 이용하여 validation 처리
+- React-router-dom 을 이용해서 Route 처리
 
-## Installation
+##### ThreeJS
 
-```bash
-$ npm install
-```
+- Three.js 를 이용하여 3D 렌더링 적용
+- 캐릭터 조작 및 애니메이션 처리
+- Rapier3D 엔진을 이용하여 물리 처리 (etc. gravity, collision)
+- 부드러운 움직임을 위해 이동 동기화시 보간 처리
 
-## Running the app
+---
 
-```bash
-# development
-$ npm run start
+### Multiplayer Server
 
-# watch mode
-$ npm run start:dev
+##### Colyseus
 
-# production mode
-$ npm run start:prod
-```
+- Colyseus 프레임워크를 이용하여 멀티플레이 적용
+- Three.js 를 이용하여 Dungeon 월드 상태 계산
+- 캐릭터 및 NPC Transform 동기화
+- AStar 및 PathFinder 알고리즘을 이용한 NPC 길찾기 적용
+- WebSocket 을 이용하여 채팅 기능 구현
 
-## Test
+---
 
-```bash
-# unit tests
-$ npm run test
+### Backend
 
-# e2e tests
-$ npm run test:e2e
+##### NestJS
 
-# test coverage
-$ npm run test:cov
-```
+- NestJS 프레임워크를 이용하여 로그인 서버 구현
+- Google, Github OAuth 로그인 구현
+- TypeORM 과 PostgreSQL 을 이용한 데이터 저장
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Infra
 
-## Stay in touch
+##### Synology Docker
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- 개인 Synology NAS docker 를 이용하여 서비스 환경 구축
+- Frontend, GameServer, Backend 도커 이미지 빌드 후 컨테이너 생성
+- MinIO, PostgreSQL 컨테이너 생성
